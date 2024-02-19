@@ -18,11 +18,10 @@ public class App {
         context.addServlet(Example.class, "/*");
 
         /**
-         * Insofern die nächsten zwei Zeilen Code auskommentiert sind, erhalte ich einen Cors Fehler auf meiner Seite - der Expo Dev Server Seite.
-         * Sind diese Zeilen aktiv werden bei mir nötige Header bei einer Antwort angehangen, die mir den Zugriff von meiner App aus erlauben.
+         * Insofern die nächste Zeile Code auskommentiert ist, erhalte ich einen Cors Fehler auf meiner Seite - der Expo Dev Server Seite.
+         * Ist diese Zeile aktiv werden bei mir nötige Header bei einer Antwort angehangen, die mir den Zugriff von meiner App aus erlauben.
          */
         FilterHolder cors = context.addFilter(CrossOriginFilter.class, "/*", EnumSet.of(DispatcherType.REQUEST));
-        cors.setInitParameter(CrossOriginFilter.ACCESS_CONTROL_ALLOW_ORIGIN_HEADER, "*");
 
         server.setHandler(context);
 
